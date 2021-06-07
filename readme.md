@@ -15,8 +15,7 @@
 * Put the MNLI files (downloaded and extracted from [here](https://cims.nyu.edu/~sbowman/multinli/)) in `data/NLI_data/MNLI/` 
 * Put the Logical Inference data files (train0,train1,train2,.....test12) (downloaded from [here](https://github.com/yikangshen/Ordered-Memory/tree/master/data/propositionallogic)) in `data/NLI_data/PNLI/`
 * Put the ListOps data files (downloaded from [here](https://github.com/yikangshen/Ordered-Memory/tree/master/data/listops)) in `data/Classifier_data/listops/` 
-* Put the ListOps data files (downloaded from [here](https://github.com/yikangshen/Ordered-Memory/tree/master/data/listops)) in `data/Classifier_data/listops_extrapolation_data/`
-* Put the ListOps extrapolation data (downloaded from the url mentioned [here](https://github.com/facebookresearch/latent-treelstm/blob/master/data/listops/external/urls.txt))
+* Put the ListOps extrapolation data (downloaded from the url mentioned [here](https://github.com/facebookresearch/latent-treelstm/blob/master/data/listops/external/urls.txt)) in `data/Classifier_data/listops_extrapolation_data/`
 * SST2 and SST5 data is downloaded and used through torchtext (so you don't have to do anything for SST5/2 data at this point)
 * Put `glove.840B.300d.txt` (download `glove.840B.300d.zip` from [here](https://nlp.stanford.edu/projects/glove/)) in `embeddings/glove/`
 
