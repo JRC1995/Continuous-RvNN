@@ -28,7 +28,7 @@ CRvNN" as Model name. (also, "entropy" or "entropy_penalty" is an earlier name f
   
 * To see the main source code check `inference/models/encoders/CRvNN.py` (Eq. 5 version in paper) or `inference/models/encoders/CRvNN2.py` (Eq. 6 version in paper)
 
-* The code framework in `inference/` is a newer. If you want to build up from this repository, I would recommend mainly refering to `inference/`. The separate `classifier/` code is there for the sake of better reproducibility (because the reported classifier experiments were run using it).
+* The code framework in `inference/` is newer. If you want to build up from this repository, I would recommend mainly refering to `inference/`. The separate `classifier/` code is there for the sake of better reproducibility (because the reported classifier experiments were run using it).
 
 ### Hyperparamter Tuning
 Should not be necessary to approximately reproduce the results because the chosen hyperparameters are already set up in the configs. But if you want to hyperparameter tune anyway then consider the following instructions.
@@ -56,8 +56,17 @@ Hyperparameters themselves can be modified in `classifier/configs/` and `inferen
 
 ### MNLI experiments note
 
-Depending on how the dynamic halting behaves during the training you may get a complete run on MNLI without issues, or you may run into OOM errors. One nasty way to workaround is reduce the train_batch_size (in `inference/configs/MNLI_configs.py`). Note that gradient accumulation is on and the effective batch size after gradient accumulation is specific by batch_size in the config, so changing the train_batch_size for a epoch or two wouldn't make things too inconsistent (note if you reduce the train_batch_size try to do that by a factor of 2). There is also a bit dynamic train batch size adjustment going on according to the sequence length within `inference/collaters/NLI_collater.py` and you can play around with it a bit to avoid the OOM for the epoch (you can revert it back later).
-A better solution could be to set an upperbound to the number of recursion. Currently the upperbound is the sequence size (S) - 2. A better upperbound may be `min(M, S-2)` where M can be the maximum upperbound that should not be crossed no matter the sequence size. There should be a good M value given that the model can run fine on several complete runs suggesting dynamic halting does not need to go beyond some M (going beyond which causes OOM). To change the upperbound, you have to change the source code `inference/models/encoders/CRvNN.py` (line 249) (replace S-2, with min(M,S-2) where M can be whatever you want to set). (Note everything I said applies to my experience with training on a single gpu p3.2x AWS machine. Things may vary in other cases. In low resource settings, using a low M parameter to put a maximum limit to tree depth may be helpful (or not; I am not sure).
+Depending on how the dynamic halting behaves during the training you may get a complete run on MNLI without issues, or you may run into OOM errors. 
+
+One nasty way to workaround is reduce the train_batch_size (in `inference/configs/MNLI_configs.py`). Note that gradient accumulation is on and the effective batch size after gradient accumulation is specific by batch_size in the config, so changing the train_batch_size for a epoch or two wouldn't make things too inconsistent (if you reduce the train_batch_size try to do that by a factor of 2).
+
+There is also a bit dynamic train batch size adjustment going on according to the sequence length within `inference/collaters/NLI_collater.py` and you can play around with it a bit to avoid the OOM for the epoch (you can revert it back later).
+
+
+A better solution could be to set an upperbound to the number of recursion. Currently the upperbound is the sequence size (S) - 2. A better upperbound may be `min(M, S-2)` where M can be the maximum upperbound that should not be crossed no matter the sequence size. There should be a good M value given that the model can run fine on several complete runs suggesting dynamic halting does not need to go beyond some M (going beyond which causes OOM). To change the upperbound, you have to change the source code `inference/models/encoders/CRvNN.py` (line 249) (replace S-2, with min(M,S-2) where M can be whatever you want to set). 
+
+
+Note everything I said applies to my experience with training on a single gpu p3.2x AWS machine. Things may vary in other cases. In low resource settings, using a low M parameter to put a maximum limit to tree depth may be helpful (or not; I am not sure).
 
 
 ### Testing
