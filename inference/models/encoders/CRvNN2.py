@@ -216,7 +216,7 @@ class CRvNN2(nn.Module):
         improperly_terminated_mask = halt_ones.clone()
         update_mask = T.ones(N).float().to(sequence.device)
         left_transition_probs = T.zeros(N, S, 1).float().to(sequence.device)
-        sparsity_losses = T.zeros(N).float().to(sequence.device)
+        sparsity_losses = T.zeros(N).float().to(sequence.device) # Not related to the paper
 
         """
         Initial Transform
@@ -350,7 +350,7 @@ class CRvNN2(nn.Module):
         speed_penalty = self.compute_speed_penalty(steps, input_mask)
 
         # entropy_penalty = entropy_penalty * improperly_terminated_mask
-        penalty = self.entropy_gamma * entropy_penalty + self.speed_gamma * speed_penalty + self.sparsity_gamma * sparsity_loss
+        penalty = self.entropy_gamma * entropy_penalty + self.speed_gamma * speed_penalty #+ self.sparsity_gamma * sparsity_loss
 
         return sequence, global_state, penalty
 
