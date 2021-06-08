@@ -94,6 +94,7 @@ def run(args, config, time=0):
         agent, loaded_stuff = load_temp_checkpoint(agent, time, checkpoint_paths, args, paths)
         config["current_lr"] = agent.optimizer.param_groups[-1]["lr"]
         time = loaded_stuff["time"]
+        paths, checkpoint_paths, metadata = load_paths(args, time)
         if loaded_stuff["random_states"] is not None:
             random_states = loaded_stuff["random_states"]
             random.setstate(random_states["python_random_state"])
