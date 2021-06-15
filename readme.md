@@ -62,7 +62,7 @@ Note: You have to manually modify the configs according to the chosen hyperparam
 
 Depending on how the dynamic halting behaves during the training you may get a complete run on MNLI without issues, or you may run into OOM errors. 
 
-One nasty way to workaround is reduce the train_batch_size (in `inference/configs/MNLI_configs.py`). Note that gradient accumulation is on and the effective batch size after gradient accumulation is specific by batch_size in the config, so changing the train_batch_size for a epoch or two wouldn't make things too inconsistent (if you reduce the train_batch_size try to do that by a factor of 2).
+One nasty way to workaround is reduce the train_batch_size (in `inference/configs/MNLI_configs.py`). Note that gradient accumulation is on and the effective batch size after gradient accumulation is specified by batch_size in the config, so changing the train_batch_size for a epoch or two wouldn't make things too inconsistent (if you reduce the train_batch_size try to do that by a factor of 2).
 
 There is also a bit dynamic train batch size adjustment going on according to the sequence length within `inference/collaters/NLI_collater.py` and you can play around with it a bit to avoid the OOM for the epoch (you can revert it back later).
 
