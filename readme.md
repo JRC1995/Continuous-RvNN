@@ -42,6 +42,8 @@ Should not be necessary to approximately reproduce the results because the chose
 Hyperparameter search space can be modified in `classifier/hyperconfigs/` and `inference/hyperconfigs/` (check the already existing "hyperconfigs" files there.)
 Hyperparameters themselves can be modified in `classifier/configs/` and `inference/configs/` (check the already existing config files in there)
 
+Note: You have to manually modify the configs according to the chosen hyperparameters after hyperparameter tuning.
+
 ### Training
 
 * To run logical inference experiment (length generalization), go to `inference/` and run `python train.py --model=CRvNN --times=5 --dataset=PNLI_LG --model_type=NLI --limit=-1`
