@@ -1,5 +1,7 @@
 ## Repository for "Modeling Hierarchical Structures with Continuous Recursive Neural Networks" (ICML 2021)
 
+[Arxiv Link](https://arxiv.org/abs/2106.06038)
+
 ### Requirements
 
 * torch                              1.7.1+cu110
