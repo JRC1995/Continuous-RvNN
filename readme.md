@@ -88,7 +88,7 @@ Predictions will be generated in `inference/predictions/`
 ### Credits
 * `classifier/models/encoders/ordered_memory.py` or `inference/models/encoders/ordered_memory.py` is adapted from [here](https://github.com/yikangshen/Ordered-Memory).
 * `classifier/optimizers/ranger.py` or `inference/optimizers/ranger.py` is adapted from [here](https://github.com/anoidgit/transformer/blob/master/optm/ranger.py).
-* `classifier/optimizers/radam.py` or `inference/optimizers/radam.py` is adapted from [here](https://github.com/LiyuanLucasLiu/RAdam/blob/master/radam.py).
+* `classifier/optimizers/radam.py` or `inference/optimizers/radam.py` is adapted from [here](https://github.com/LiyuanLucasLiu/RAdam/).
 
 ### Contact
 Feel free to contact me (write github issues, or reach out through emails, or both) if you run into any issues. 
