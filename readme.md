@@ -95,4 +95,13 @@ Feel free to contact me (write github issues, or reach out through emails, or bo
 
 ### Cite
 
-To be updated. 
+```
+@InProceedings{rcicml2021modeling,
+  title = 	 {Modeling Hierarchical Structures with Continuous Recursive Neural Networks},
+  author =       {Ray Chowdhury, Jishnu and Caragea, Cornelia},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  year = 	 {2021},
+  series = 	 {Proceedings of Machine Learning Research},
+  publisher =    {PMLR}
+}
+```
