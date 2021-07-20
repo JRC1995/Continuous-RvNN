@@ -96,12 +96,19 @@ Feel free to contact me (write github issues, or reach out through emails, or bo
 ### Cite
 
 ```
-@InProceedings{rcicml2021modeling,
+@InProceedings{pmlr-v139-chowdhury21a,
   title = 	 {Modeling Hierarchical Structures with Continuous Recursive Neural Networks},
-  author =       {Ray Chowdhury, Jishnu and Caragea, Cornelia},
+  author =       {Chowdhury, Jishnu Ray and Caragea, Cornelia},
   booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {1975--1988},
   year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
   series = 	 {Proceedings of Machine Learning Research},
-  publisher =    {PMLR}
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/chowdhury21a/chowdhury21a.pdf},
+  url = 	 {http://proceedings.mlr.press/v139/chowdhury21a.html},
+  abstract = 	 {Recursive Neural Networks (RvNNs), which compose sequences according to their underlying hierarchical syntactic structure, have performed well in several natural language processing tasks compared to similar models without structural biases. However, traditional RvNNs are incapable of inducing the latent structure in a plain text sequence on their own. Several extensions have been proposed to overcome this limitation. Nevertheless, these extensions tend to rely on surrogate gradients or reinforcement learning at the cost of higher bias or variance. In this work, we propose Continuous Recursive Neural Network (CRvNN) as a backpropagation-friendly alternative to address the aforementioned limitations. This is done by incorporating a continuous relaxation to the induced structure. We demonstrate that CRvNN achieves strong performance in challenging synthetic tasks such as logical inference (Bowman et al., 2015b) and ListOps (Nangia &amp; Bowman, 2018). We also show that CRvNN performs comparably or better than prior latent structure models on real-world tasks such as sentiment analysis and natural language inference.}
 }
 ```
