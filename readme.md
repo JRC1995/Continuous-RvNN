@@ -1,6 +1,6 @@
 ## Official Repository for "Modeling Hierarchical Structures with Continuous Recursive Neural Networks" (ICML 2021)
 
-[Link](http://proceedings.mlr.press/v139/chowdhury21a.html)
+[Paper Link](http://proceedings.mlr.press/v139/chowdhury21a.html)
 
 ### Requirements
 
